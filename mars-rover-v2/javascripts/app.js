@@ -72,6 +72,33 @@ function moveForward(rover){
 }
 
 
+function moveBackwards(rover){
+
+  console.log("moveBackwards was called")
+
+  if(rover.direction == 'N'){
+    rover.travelLog.push(rover.x , rover.y);
+    rover.y = rover.y - 1;
+    console.log( `The rover moved to ${rover.x}, ${rover.y}`);
+  } 
+  else if (rover.direction == 'E'){
+    rover.travelLog.push(rover.x , rover.y);
+    rover.x = rover.x - 1;
+    console.log( `The rover moved to ${rover.x}, ${rover.y}`);
+  } 
+  else if (rover.direction == 'S'){
+    rover.travelLog.push(rover.x , rover.y);
+    rover.y = rover.y + 1;
+    console.log( `The rover moved to ${rover.x}, ${rover.y}`);
+  } 
+  else if (rover.direction == 'W'){
+    rover.travelLog.push(rover.x , rover.y);
+    rover.x = rover.x + 1;
+    console.log( `The rover moved to ${rover.x}, ${rover.y}`);
+  }
+}
+
+
 function action(command){
   for (i = 0; i < command.length; ++i) {
     if (command.charAT(i) == 'f') {
@@ -82,6 +109,9 @@ function action(command){
     }
     else if (command.charAT(i) == 'r'){
       turnRight(rover);
+    }
+    else if (command.charAT(i) == 'b'){
+      moveBackwards(rover);
     }
   }
 }
